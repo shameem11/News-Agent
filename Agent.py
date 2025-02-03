@@ -2,6 +2,7 @@ from langchain_groq import ChatGroq
 from crewai import Agent
 import os 
 from dotenv import load_dotenv
+from Tool_setup import tool
 
 # Load environment variables from .env file
 load_dotenv()
@@ -22,7 +23,7 @@ researcher = Agent(
         Your ability to synthesize complex data into clear, actionable recommendations has made you a trusted advisor to top executives.
     '''),
     verbose=True,
-    tools=[],
+    tools=[tool,],
     llm=Model,
     allow_delegation=True
     
@@ -36,7 +37,7 @@ News = writer = Agent(
     backstory=("A skilled writer with expertise in AI, technology, and market trends, capable of crafting insightful articles, blog posts, and reports"),
     llm=Model,
     allow_delegation=True,
-    tools=[]
+    tools=[tool]
 
     
 )
