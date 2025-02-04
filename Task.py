@@ -4,18 +4,11 @@ from Agent import researcher,News
 
 research_task = Task(
   description=(
-    "Conduct an in-depth analysis to identify the next big trend in {topic}. "
-    "Your research should focus on emerging patterns, technological breakthroughs, and industry shifts. "
-    "Ensure your findings cover: "
-    "- The significance of this trend and why it is gaining attention. "
-    "- Key advantages and potential drawbacks associated with it. "
-    "- The market opportunities it presents, including industries and stakeholders that may benefit. "
-    "- Possible risks, ethical concerns, or regulatory challenges. "
-    "Your final report should be well-structured, providing a balanced perspective on the trend."
+    "Analyze the emerging trend in {topic}, focusing on patterns and industry shifts. "
+    "Highlight its significance, advantages, drawbacks, market and opportunities."
   ),
   expected_output=(
-    "A well-structured, **3-paragraph** report summarizing the latest trends in {topic}. "
-    "Each paragraph should highlight key insights, opportunities, and challenges."
+    "A concise **3-paragraph** report summarizing key insights, opportunities,try to the websit link, and challenges in {topic}."
   ),
   tools=[internet_search],
   agent=researcher
@@ -25,17 +18,15 @@ research_task = Task(
 
 write_task = Task(
     description=(
-        "Write a well-researched, engaging article on **{topic}**. "
-        "Highlight the **latest trends**, key developments, and their impact on the industry. "
-        "Ensure the article is **insightful, easy to understand, and maintains a positive tone**. "
-        "Use compelling storytelling, expert insights, and relevant examples to keep readers engaged."
+        "Write an engaging article on **{topic}**, covering the latest trends, key developments, and their industry impact. "
+        "Ensure the content is insightful, positive, and easy to understand, with relevant examples and expert insights."
     ),
     expected_output=(
-        "A **3-paragraph** article on **{topic} advancements**, formatted in Markdown, "
-        "with clear sections and engaging content."
+        "A **3-paragraph** article on **{topic} advancements**, in Markdown, with clear sections."
     ),
     tools=[internet_search],
     agent=News,
     async_execution=False,
-    output_file="new-blog-post.md"  # Ensures structured output storage
+    output_file="new-blog-post.md"
 )
+
